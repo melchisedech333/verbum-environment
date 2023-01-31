@@ -1,0 +1,16 @@
+{
+    "name": "verbum-environment",
+    "version": "1.0.0",
+    "description": "Verbum Environment.",
+    "main": "verbum.js",
+    "scripts": {
+      "start": "electron verbum.js"
+    },
+    "license": "license file (BSD-3-Clause license)",
+    "author": "melchisedech333 - https://github.com/melchisedech333",
+    "devDependencies": {
+      "electron": "^22.1.0"
+    }
+}
+
+

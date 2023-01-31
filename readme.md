@@ -52,9 +52,16 @@ chmod +x verbum.sh
 - <b>verbum.sh</b>: Initializes the Verbum Environment.
 
 <br>
+<b>Files:</b>
+
+- <b>package.json</b>: Configuration file (Electron).
+- <b>verbum.js</b>: Main file (Electron).
+- <b>ui-interface.js</b>: Interface control (UI).
+
+<br>
 <b>Directories:</b>
 
-- <b>ui</b>: user interface (Electron application).
+- <b>ui</b>: user interface (Electron).
 
 
 
