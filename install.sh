@@ -11,6 +11,9 @@
 # 
 git clone https://github.com/melchisedech333/verbum-environment.git
 mv verbum-environment verbum
+cd verbum
+chmod +x verbum.sh
+cd ..
 
 #
 # Prepare dependencies.
