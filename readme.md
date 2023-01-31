@@ -63,5 +63,12 @@ chmod +x verbum.sh
 
 - <b>ui</b>: user interface (Electron).
 
+<br>
+<b>After installation:</b>
+
+- <b>verbum/*</b>: Verbum Environment.
+- <b>dependencies/*</b>: All necessary dependencies.
+- <b>data/electron</b>: Electron temporary files.
+- <b>data/ui</b>: UI files.
 
 

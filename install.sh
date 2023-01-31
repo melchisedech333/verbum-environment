@@ -26,5 +26,6 @@ cd ../../
 # Prepare directories and files.
 #
 mkdir -p data/electron
+mkdir -p data/ui
 
 
