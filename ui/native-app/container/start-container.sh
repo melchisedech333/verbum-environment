@@ -41,6 +41,6 @@ rm -rf "${TEMPDIR}"
 
 # wait
 
-x11vnc -display :$2 -rfbport $4
+x11vnc -forever -display :$2 -rfbport $4
 
 

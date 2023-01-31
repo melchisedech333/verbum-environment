@@ -25,6 +25,17 @@ unzip electron-v22.1.0-linux-x64.zip
 rm -rf electron-v22.1.0-linux-x64.zip
 cd ../../
 
+mkdir -p dependencies/noVNC-1.4.0
+cd dependencies/noVNC-1.4.0
+wget -c https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.zip
+unzip v1.4.0.zip
+rm -rf v1.4.0.zip
+cd noVNC-1.4.0/
+mv * ..
+cd ..
+rm -rf noVNC-1.4.0
+cd ../../
+
 #
 # Prepare directories and files.
 #

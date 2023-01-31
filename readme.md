@@ -8,7 +8,8 @@ Tested on Linux Mint x64.
 ## <b>Requirements</b>
 
 - Electron v22.1.0 (Stable) [Download](https://github.com/electron/electron/releases/tag/v22.1.0)
-- git, wget
+- noVNC v1.4.0 (Stable) [Download](https://github.com/novnc/noVNC/releases/tag/v1.4.0)
+- git, wget, unzip
 
 <br>
 
