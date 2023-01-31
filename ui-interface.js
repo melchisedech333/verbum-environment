@@ -15,15 +15,21 @@ contextBridge.exposeInMainWorld(
         toggle_dev_tools: () => {
             ipcRenderer.send('open-dev-tools', null)
         },
-    }
-)
 
-contextBridge.exposeInMainWorld(
-    "interface_native_app", {
-        start: (settings) => {
-            ipcRenderer.send('native-app-start', settings)
+        get_dirname: () => {
+            return __dirname
         }
     }
 )
+
+// contextBridge.exposeInMainWorld(
+//     "interface_native_app", {
+
+//         start: (settings) => {
+//             console.log('__dirname:', __dirname)
+//             // ipcRenderer.send('native-app-start', settings)
+//         }
+//     }
+// )
 
 

@@ -4,7 +4,7 @@ $(document).ready(() => {
 
     $('#open').on('click', ()=>{
         var settings = {
-            program: $('#program').val(),
+            name: $('#program').val(),
             resolution: $('#resolution').val(),
             window_id: 'window-id-1'
         }
