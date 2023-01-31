@@ -27,7 +27,8 @@ app.once('ready', () => {
   })
   
   win.setMenuBarVisibility(false)
-  win.center()
+  // win.center()
+  win.maximize()
   win.loadFile(path.join(__dirname, 'ui/main.html'))
   win.webContents.openDevTools();
   
