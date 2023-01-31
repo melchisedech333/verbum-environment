@@ -35,7 +35,7 @@ chmod +x install.sh
 ```
 
 <br>
-After the installation is successful, run the <b>verbum.sh</b> script.
+After the installation is successful, run the <b>verbum.sh</b> script (The file is inside the folder called <b>verbum</b>).
 
 ```bash
 chmod +x verbum.sh

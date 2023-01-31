@@ -23,7 +23,7 @@ rm -rf electron-v22.1.0-linux-x64.zip
 cd ../../
 
 #
-# Prepare directories.
+# Prepare directories and files.
 #
 mkdir -p data/electron
 
