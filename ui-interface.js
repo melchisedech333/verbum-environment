@@ -22,14 +22,4 @@ contextBridge.exposeInMainWorld(
     }
 )
 
-// contextBridge.exposeInMainWorld(
-//     "interface_native_app", {
-
-//         start: (settings) => {
-//             console.log('__dirname:', __dirname)
-//             // ipcRenderer.send('native-app-start', settings)
-//         }
-//     }
-// )
-
 

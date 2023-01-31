@@ -30,8 +30,9 @@ app.once('ready', () => {
   win.center()
   // win.maximize()
   win.loadFile(path.join(__dirname, 'ui/main.html'))
-  win.webContents.openDevTools();
-  
+  win.webContents.openDevTools();  
+  // win.setAlwaysOnTop(true, 'screen');
+
   win.once('ready-to-show', () => {
     win.show()
   })
@@ -54,32 +55,5 @@ ipcMain.on('restart-application', (ev, param) => {
 ipcMain.on('open-dev-tools', (ev, param) => {
   win.webContents.openDevTools()
 })
-
-
-/**
- * Native App interface.
- */
-
-// ipcMain.on('native-app-start', (ev, settings) => {
-//   var command =  __dirname +'/ui/native-app/container/start-container.sh "'+ 
-//     settings.resolution +'" "'+ settings.id +'" "'+ settings.program +'" "'+ settings.rfbport +'"'
-  // var program = __dirname +'/ui/native-app/container/start-container.sh'
-  // var parameters = []
-  
-  // parameters.push(settings.resolution)
-  // parameters.push(settings.id)
-  // parameters.push(settings.program)
-  // parameters.push(settings.rfbport)
-
-  // console.log('directory:', directory)
-  // console.log(JSON.stringify(param))
-
-  // var child = require('child_process').execFile;
-
-  // child(program, parameters, function(err, data) {
-  //   console.log(err)
-  //   console.log(data.toString());
-  // });
-// })
 
 
