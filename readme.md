@@ -5,14 +5,14 @@ Tested on Linux Mint x64.
 
 <br>
 
-### <b>Requirements</b>
+## <b>Requirements</b>
 
 - Electron v22.1.0 (Stable) [Download](https://github.com/electron/electron/releases/tag/v22.1.0)
 - git, wget
 
 <br>
 
-### <b>Install</b>
+## <b>Install</b>
 
 Go to the directory where you want to install Verbum Environment.
 
@@ -41,5 +41,20 @@ After the installation is successful, run the <b>verbum.sh</b> script.
 chmod +x verbum.sh
 ./verbum.sh
 ```
+
+<br>
+
+## <b>Project structure</b>
+
+<b>Scripts:</b>
+
+- <b>install.sh</b>: installation script.
+- <b>verbum.sh</b>: Initializes the Verbum Environment.
+
+<br>
+<b>Directories:</b>
+
+- <b>ui</b>: user interface (Electron application).
+
 
 
