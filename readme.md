@@ -1,6 +1,10 @@
 
 # Verbum Environment
 
+Tested on Linux Mint x64.
+
+<br>
+
 ### <b>Requirements</b>
 
 - Electron v22.1.0 (Stable) [Download](https://github.com/electron/electron/releases/tag/v22.1.0)
@@ -10,13 +14,32 @@
 
 ### <b>Install</b>
 
-Tested on Linux Mint x64.
+Go to the directory where you want to install Verbum Environment.
+
+<br>
+Example:
 
 ```bash
-git clone https://github.com/melchisedech333/verbum-environment.git
-cd verbum-environment
+cd ~/
+mkdir .verbum-environment
+cd .verbum-environment
+```
+
+<br>
+And run the commands below.
+
+```bash
+wget -c https://raw.githubusercontent.com/melchisedech333/verbum-environment/main/install.sh
 chmod +x install.sh
 ./install.sh
+```
+
+<br>
+After the installation is successful, run the <b>verbum.sh</b> script.
+
+```bash
+chmod +x verbum.sh
+./verbum.sh
 ```
 
 
