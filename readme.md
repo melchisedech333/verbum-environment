@@ -63,6 +63,7 @@ chmod +x verbum.sh
 <b>Directories:</b>
 
 - <b>ui</b>: user interface (Electron).
+- <b>interface</b>: system interface.
 
 <br>
 <b>After installation:</b>
@@ -71,5 +72,11 @@ chmod +x verbum.sh
 - <b>dependencies/*</b>: All necessary dependencies.
 - <b>data/electron</b>: Electron temporary files.
 - <b>data/ui</b>: UI files.
+
+<br>
+
+## <b>Codes and projects that helped me create the Verbum Environment</b>
+
+- Sylvain Leroux, with its scripts that allow you to run applications on Xephyr ([View gists scripts](https://gist.github.com/s-leroux/d1d2f730467857fa3afe)). It helped me a lot in building the Native-App module (Xephyr + noVNC), which makes it possible to open and control native programs through the web interface (Electron). 
 
 
