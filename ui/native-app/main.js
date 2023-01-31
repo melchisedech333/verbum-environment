@@ -11,7 +11,8 @@ class NativeApp {
         program.rfbport = 10000 + this.programs.length
         program.vncport = 20000 + this.programs.length
         program.active = true
-        program.vnc_address = 'http://localhost:'+ program.vncport +'/vnc.html?autoconnect=true&reconnect=true&reconnect_delay=true'
+        program.vnc_address = 'http://localhost:'+ program.vncport +
+            '/vnc.html?autoconnect=true'
         program.geometry = program.resolution.split('x')
 
         this.programs.push(program)
@@ -42,4 +43,16 @@ class NativeApp {
 
 var native_app = new NativeApp()
 
+// Search window:
+// xwininfo -display :10 -root -children | grep "thunar" | grep $(whoami)
+// xwininfo -display :10 -id 0x600007 # show width, height
+// or...
+// xprop _NET_WM_OPAQUE_REGION -display :10 -id 0x600007 # show width, height
+
+// Change size:
+// export DISPLAY=:10
+// xdotool windowsize WINDOW-ID WIDTH HEIGHT
+
+// Search windows and change size:
+// xwininfo -display :10 -root -children | grep thunar | grep $(whoami) | sed 's/[^0-9 x]//g' | awk '{ system("export DISPLAY=:10; xdotool windowsize " $1 " 333 333") }'
 

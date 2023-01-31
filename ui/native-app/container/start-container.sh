@@ -41,6 +41,12 @@ rm -rf "${TEMPDIR}"
 
 # wait
 
-x11vnc -forever -display :$2 -rfbport $4
+x11vnc -forever -display :$2 -rfbport $4 &
+sleep 1
+
+CDISPLAY=":$2"
+RESOLUTION=$(echo "$1" | tr x ' ')
+
+xwininfo -display $CDISPLAY -root -children | grep thunar | grep $(whoami) | sed 's/[^0-9 x]//g' | awk -v v1="$CDISPLAY" -v v2="$RESOLUTION" '{ system("export DISPLAY=" v1 "; xdotool windowsize " $1 " " v2) }'
 
 

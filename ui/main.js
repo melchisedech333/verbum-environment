@@ -35,10 +35,6 @@ $(document).ready(() => {
             )
         }, 3000, program)
     })
-
-    $('#reload-content').on('click', ()=> {
-
-    })
 })
 
 
