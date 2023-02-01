@@ -13,7 +13,7 @@ class NativeApp {
         program.vncport = 20000 + this.programs.length
         program.active = true
         program.vnc_address = 'http://localhost:'+ program.vncport +
-            '/vnc.html?autoconnect=true'
+            '/vnc_lite.html?autoconnect=true'
         program.geometry = program.resolution.split('x')
 
         this.programs.push(program)
