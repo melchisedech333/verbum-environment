@@ -9,7 +9,7 @@ Tested on Linux Mint x64.
 
 - Electron v22.1.0 (Stable) [Download](https://github.com/electron/electron/releases/tag/v22.1.0)
 - noVNC v1.4.0 (Stable) [Download](https://github.com/novnc/noVNC/releases/tag/v1.4.0)
-- git, wget, unzip
+- git, wget, unzip, x11-utils, xwininfo, x11vnc, xdotool
 
 <br>
 
