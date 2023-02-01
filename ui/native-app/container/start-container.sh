@@ -34,7 +34,7 @@ fi
 
 Xephyr -resizeable -displayfd 3 \
        -sw-cursor -reset -terminate \
-       "${GUEST_DISPLAY}" -screen "${SCREEN}" "${EXTRA[@]}" &
+       "${GUEST_DISPLAY}" -screen "4000x4000" "${EXTRA[@]}" &
 
 sleep 1
 rm -rf "${TEMPDIR}"
@@ -42,7 +42,7 @@ rm -rf "${TEMPDIR}"
 # wait
 
 x11vnc -forever -display :$2 -rfbport $4 &
-sleep 1
+sleep 3
 
 # Prepare resolution.
 CDISPLAY=":$2"
@@ -54,5 +54,8 @@ xwininfo -display $CDISPLAY -root -children |
     sed 's/[^0-9 x]//g' |
     awk -v v1="$CDISPLAY" -v v2="$RESOLUTION" \
         '{ system("export DISPLAY=" v1 "; xdotool windowsize " $1 " " v2) }'
+
+XephyrID=$(wmctrl -l | grep "Xephyr" | grep "$CDISPLAY" | awk '{ print $1 }')
+xdotool windowsize $XephyrID $RESOLUTION
 
 

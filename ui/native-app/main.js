@@ -1,5 +1,6 @@
 
 class NativeApp {
+    gateway = 'http://localhost:1337?'
     programs = []
 
     constructor () {
@@ -26,7 +27,8 @@ class NativeApp {
 
     send_command (program) {
         var dirname = window.interface_general.get_dirname()
-        var param = 
+        var param =
+            'action=start&'+ 
             'path='+ dirname +'/ui/native-app/container/start-container.sh&'+
             'vnc='+ dirname +'/../dependencies/noVNC-1.4.0/utils/novnc_proxy&'+
             'id='+ program.id +'&'+
@@ -35,24 +37,48 @@ class NativeApp {
             'rfbport='+ program.rfbport +'&'+
             'vncport='+ program.vncport
 
-        $.get('http://localhost:1337?'+ param, (data) => {
+        $.get(this.gateway + param, (data) => {
             console.log(data)
         })
+    }
+
+    change_resolution (program_id, resolution) {
+        var dirname = window.interface_general.get_dirname()
+        var program_name = ''
+
+        for (var a=0; a<this.programs.length; a++) {
+            if (this.programs[a].id == program_id) {
+                program_name = this.programs[a].name
+                break
+            }
+        }
+
+        var param = 
+            'action=change-resolution&'+
+            'path='+ dirname +'/ui/native-app/container/set-resolution.sh&'+
+            'id='+ program_id +'&'+
+            'resolution='+ resolution +'&'+
+            'name='+ program_name
+
+        $.get(this.gateway + param, (data) => {
+            console.log(data)
+        })
+    }
+
+    get_window_id (program_id) {
+        var window_id = -1
+
+        for (var a=0; a<this.programs.length; a++) {
+            if (this.programs[a].id == program_id) {
+                window_id = this.programs[a].window_id
+                break
+            }
+        }
+
+        return window_id
     }
 }
 
 var native_app = new NativeApp()
 
-// Search window:
-// xwininfo -display :10 -root -children | grep "thunar" | grep $(whoami)
-// xwininfo -display :10 -id 0x600007 # show width, height
-// or...
-// xprop _NET_WM_OPAQUE_REGION -display :10 -id 0x600007 # show width, height
-
-// Change size:
-// export DISPLAY=:10
-// xdotool windowsize WINDOW-ID WIDTH HEIGHT
-
-// Search windows and change size:
-// xwininfo -display :10 -root -children | grep thunar | grep $(whoami) | sed 's/[^0-9 x]//g' | awk '{ system("export DISPLAY=:10; xdotool windowsize " $1 " 333 333") }'
 

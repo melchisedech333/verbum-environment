@@ -22,28 +22,46 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         query = urlparse(self.path).query
         query_components = dict(qc.split("=") for qc in query.split("&"))
-        p_path = query_components["path"]
-        p_vnc = query_components["vnc"]
-        p_id = query_components["id"]
-        p_resolution = query_components["resolution"]
-        p_name = query_components["name"]
-        p_rfbport = query_components["rfbport"]
-        p_vncport = query_components["vncport"]
+        p_action = query_components["action"]
+        
+        if p_action == 'start':
+            p_path = query_components["path"]
+            p_vnc = query_components["vnc"]
+            p_id = query_components["id"]
+            p_resolution = query_components["resolution"]
+            p_name = query_components["name"]
+            p_rfbport = query_components["rfbport"]
+            p_vncport = query_components["vncport"]
 
-        response  = "IHS\nPath: "+ p_path +"\nID: "+ p_id +"\nResolution: "
-        response += p_resolution +"\nName: "+ p_name +"\nRFB: "+ p_rfbport +"\nVNC: "+ p_vncport
-        response += "\nLink: http://localhost:"+ p_vncport +"/vnc.html"
+            response  = "IHS\nPath: "+ p_path +"\nID: "+ p_id +"\nResolution: "
+            response += p_resolution +"\nName: "+ p_name +"\nRFB: "+ p_rfbport +"\nVNC: "+ p_vncport
+            response += "\nLink: http://localhost:"+ p_vncport +"/vnc.html"
 
-        self.send_headers()
-        self.wfile.write(response.encode("utf8"))
+            self.send_headers()
+            self.wfile.write(response.encode("utf8"))
 
-        t_task_app = threading.Thread(target=task_app, 
-            args=(p_path, p_id, p_resolution, p_name, p_rfbport))
-        t_task_app.start()
+            t_task_app = threading.Thread(target=task_app, 
+                args=(p_path, p_id, p_resolution, p_name, p_rfbport))
+            t_task_app.start()
 
-        t_task_vnc = threading.Thread(target=task_vnc, 
-            args=(p_vnc, p_rfbport, p_vncport))
-        t_task_vnc.start()
+            t_task_vnc = threading.Thread(target=task_vnc, 
+                args=(p_vnc, p_rfbport, p_vncport))
+            t_task_vnc.start()
+
+        elif p_action == 'change-resolution':
+            p_path = query_components["path"]
+            p_id = query_components["id"]
+            p_resolution = query_components["resolution"]
+            p_name = query_components["name"]
+
+            response  = "IHS\nChange resolution\n"
+            response += "Resolution: "+ p_resolution +"\nDisplay: "+ p_id
+            response += "\nProgram name: "+ p_name +"\nPath: "+ p_path
+
+            self.send_headers()
+            self.wfile.write(response.encode("utf8"))
+
+            subprocess.call([ p_path, p_id, p_resolution, p_name ])
 
 
 def task_app(*args):

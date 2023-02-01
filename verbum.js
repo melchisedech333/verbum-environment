@@ -31,7 +31,7 @@ app.once('ready', () => {
   // win.maximize()
   win.loadFile(path.join(__dirname, 'ui/main.html'))
   win.webContents.openDevTools();  
-  // win.setAlwaysOnTop(true, 'screen');
+  win.setAlwaysOnTop(true, 'screen');
 
   win.once('ready-to-show', () => {
     win.show()
