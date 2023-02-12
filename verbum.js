@@ -12,7 +12,7 @@ app.once('ready', () => {
     width: 900,
     height: 600,
     show: false,
-    frame: false,
+    // frame: false,
     webPreferences: {
       sandbox: false,
       nodeIntegration: true,
@@ -31,7 +31,7 @@ app.once('ready', () => {
   // win.maximize()
   win.loadFile(path.join(__dirname, 'ui/main.html'))
   win.webContents.openDevTools();  
-  win.setAlwaysOnTop(true, 'screen');
+  // win.setAlwaysOnTop(true, 'screen');
 
   win.once('ready-to-show', () => {
     win.show()
