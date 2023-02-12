@@ -4,7 +4,7 @@ class NativeApp {
     programs = []
 
     constructor () {
-        console.log("Module: NativeApp started.")
+        console.log("Module: Native App started.")
     }
 
     start (program) {

@@ -7,16 +7,35 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <title>Verbum Environment</title>
 
+    <link href="./libraries/force-graph/3d-force-graph.css" rel="stylesheet" >
+
+    <style>
+        #dashboard-network-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     
-    
+    <div id="dashboard-network-area" ></div>
 
     <!-- Libraries. -->
     <script src='./libraries/jquery/jquery-3.6.3.min.js' ></script>
 
+    <script src="./libraries/three/three.js"></script>
+    <script src="./libraries/three/three-spritetext.min.js"></script>
+    <script src="./libraries/force-graph/3d-force-graph.min.js"></script>
+
     <!-- Module: native apps. -->
     <script src='./native-app/main.js' ></script>
+
+    <!-- Module: dashboard network. -->
+    <script src='./dashboard-network/main.js' ></script>
 
     <!-- Main script. -->
     <script src='./main.js' ></script>
